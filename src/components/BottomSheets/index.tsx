@@ -2,6 +2,7 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 import { IndividualSheetName } from "./@types";
 
+import SwitchCalendarSheet from "./SwitchCalendar";
 import NetworkLoggerSheet from "./DevTools/NetworkLogger";
 
 import useBottomSheetStore from "@/store/bottom-sheets";
@@ -11,6 +12,7 @@ import useBottomSheetStore from "@/store/bottom-sheets";
  */
 const BottomSheets: Record<IndividualSheetName, React.FC<any>> = {
   NETWORK_LOGGER: NetworkLoggerSheet,
+  SWITCH_CALENDAR: SwitchCalendarSheet,
 };
 
 /**

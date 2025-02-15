@@ -6,9 +6,11 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 import Text from "@/ui/Text";
 import useAuthStore from "@/store/auth";
+import useBottomSheetStore from "@/store/bottom-sheets";
 
 export default function Layout() {
   const { user } = useAuthStore();
+  const bottomSheetStore = useBottomSheetStore();
 
   if (!user) {
     return <Redirect href="/auth/login" />;
@@ -28,7 +30,7 @@ export default function Layout() {
           height: 100,
         },
         sceneStyle: {
-          backgroundColor: "white",
+          backgroundColor: colors.gray[100],
         },
         tabBarLabel: ({ color, children }) => {
           return (
@@ -55,8 +57,8 @@ export default function Layout() {
           tabBarIcon: ({ color }) => {
             return (
               <Ionicons
-                className="mb-2"
-                size={32}
+                className="pb-2"
+                size={24}
                 color={color}
                 name="calendar"
               />
@@ -65,21 +67,36 @@ export default function Layout() {
         }}
       />
       <Tabs.Screen
+        name="create"
+        // Open a bottom sheet when pressed, dont navigate
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault();
+          },
+        })}
         options={{
           title: "Create",
           tabBarIcon: ({ color }) => {
             return (
-              <Ionicons className="mb-2" size={32} color={color} name="add" />
+              <Ionicons className="pb-2" size={24} color={color} name="add" />
             );
           },
         }}
       />
       <Tabs.Screen
+        name="more"
+        // Open a bottom sheet when pressed, dont navigate
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            bottomSheetStore.open("SWITCH_CALENDAR");
+          },
+        })}
         options={{
           title: "More",
           tabBarIcon: ({ color }) => {
             return (
-              <Ionicons className="mb-2" size={32} color={color} name="menu" />
+              <Ionicons className="pb-2" size={24} color={color} name="menu" />
             );
           },
         }}

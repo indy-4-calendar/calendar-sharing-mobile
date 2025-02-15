@@ -7,7 +7,7 @@ export default function BottomSheetView({
   className,
   ...props
 }: ViewProps) {
-  const containerClasses = classNames("px-6 py-4 gap-y-2 pb-16", className);
+  const containerClasses = classNames("px-6 py-4 gap-y-4 pb-16", className);
 
   return (
     <RNBottomSheetView className={containerClasses} {...props}>

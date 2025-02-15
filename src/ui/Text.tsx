@@ -25,7 +25,7 @@ const Text: React.FC<TextProps> = ({
   size = "base",
   ...props
 }) => {
-  const textClasses = classNames("font-sans", SizeClasses[size], className);
+  const textClasses = classNames(SizeClasses[size], className);
 
   return <RNText numberOfLines={lines} className={textClasses} {...props} />;
 };

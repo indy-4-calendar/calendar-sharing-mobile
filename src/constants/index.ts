@@ -4,7 +4,7 @@ import PackageJson from '../../package.json';
 
 // All urls for all environments
 export const Urls = {
-  ApiUrl: 'https://calendar.api.jacksenyitko.com',
+  ApiUrl: 'https://calendar-api.jacksenyitko.com',
 };
 
 const Constants = {

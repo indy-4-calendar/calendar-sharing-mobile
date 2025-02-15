@@ -1,5 +1,5 @@
 import { API } from '.';
-import { IUser } from '..';
+import { ICalendar, IUser } from '..';
 
 export type LogoutResponse = API.Response;
 
@@ -20,4 +20,9 @@ export type AppleOAuthResponse = API.Response<{
 export type GetUserResponse = API.Response<{
   /** The user's information */
   user: IUser;
+}>;
+
+export type GetCalendarsResponse = API.Response<{
+  /** The user's calendars */
+  calendars: ICalendar[];
 }>;

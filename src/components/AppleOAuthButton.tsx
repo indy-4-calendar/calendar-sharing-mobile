@@ -2,6 +2,7 @@ import * as AppleAuthentication from "expo-apple-authentication";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { useAppleOAuth } from "@/hooks/api/auth";
+import { Pressable } from "react-native";
 
 export default function AppleOAuthButton() {
   const mutation = useAppleOAuth();
@@ -51,12 +52,14 @@ export default function AppleOAuthButton() {
   };
 
   return (
-    <AppleAuthentication.AppleAuthenticationButton
-      cornerRadius={12}
-      style={{ width: "100%", height: 48 }}
-      buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}
-      buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-      onPress={onPress}
-    />
+    <Pressable onPress={onPress}>
+      <AppleAuthentication.AppleAuthenticationButton
+        cornerRadius={12}
+        style={{ width: "100%", height: 48 }}
+        buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}
+        buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
+        onPress={onPress}
+      />
+    </Pressable>
   );
 }

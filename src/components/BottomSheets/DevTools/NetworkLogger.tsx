@@ -5,7 +5,9 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 import { BottomSheetProps } from "../@types";
 
+import Button from "@/ui/Button";
 import BottomSheet from "@/ui/BottomSheet";
+import { useLogout } from "@/hooks/api/auth";
 import BottomSheetView from "@/ui/BottomSheet/Containers/View";
 
 const HEIGHT = Dimensions.get("window").height;
@@ -13,6 +15,12 @@ const HEIGHT = Dimensions.get("window").height;
 type Props = BottomSheetProps;
 
 function Content({}: Props) {
+  const mutation = useLogout();
+
+  const logout = () => {
+    mutation.mutateAsync();
+  };
+
   return (
     <BottomSheetView style={{ height: HEIGHT * 0.8 }}>
       <NetworkLogger
@@ -22,6 +30,9 @@ function Content({}: Props) {
           },
         }}
       />
+      <Button loading={mutation.isPending} onPress={logout}>
+        Logout
+      </Button>
     </BottomSheetView>
   );
 }

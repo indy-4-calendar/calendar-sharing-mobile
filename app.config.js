@@ -2,11 +2,11 @@ const packageFile = require('./package.json');
 
 export default {
   expo: {
-    name:  'Calendar Sharing',
+    name: 'Calendar Sharing',
     slug: 'calendar-sharing',
     version: packageFile.version,
     orientation: 'portrait',
-    icon:  './assets/images/icon.png',
+    icon: './assets/images/icon.png',
     scheme: 'myapp',
     userInterfaceStyle: 'light',
     newArchEnabled: false,
@@ -41,6 +41,9 @@ export default {
     extra: {
       router: {
         origin: false,
+      },
+      eas: {
+        projectId: '287fe2aa-0083-44a1-a380-2f97d727547d',
       },
     },
   },
