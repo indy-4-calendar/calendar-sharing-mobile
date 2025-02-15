@@ -20,3 +20,38 @@ export interface GetCalendarRequest {
   /** The id of the calendar */
   id: string;
 }
+
+export interface CreateEventRequest {
+  /** The id of the calendar */
+  id: string;
+  /** The name of the event */
+  name: string;
+  /** The description of the event */
+  description: string;
+  /** The date of the event */
+  date: string;
+  /** The color of the event */
+  color: string;
+}
+
+export interface UpdateEventRequest {
+  /** The id of the calendar */
+  id: string;
+  /** The id of the event */
+  event: string;
+  /** The name of the event */
+  name: string;
+  /** The description of the event */
+  description: string;
+  /** The date of the event */
+  date: string;
+  /** The color of the event */
+  color: string;
+}
+
+export interface DeleteEventRequest {
+  /** The id of the calendar */
+  id: string;
+  /** The id of the event */
+  event: string;
+}

@@ -7,6 +7,7 @@ import CreateItemSheet from "./CreateItem";
 import ShareCalendarSheet from "./ShareCalendar";
 import SwitchCalendarSheet from "./SwitchCalendar";
 import NetworkLoggerSheet from "./DevTools/NetworkLogger";
+import UpdateEventSheet from "./UpdateEvent";
 
 /**
  * The list of bottom sheets we want to support
@@ -16,6 +17,7 @@ const BottomSheets: Record<IndividualSheetName, React.FC<any>> = {
   NETWORK_LOGGER: NetworkLoggerSheet,
   SWITCH_CALENDAR: SwitchCalendarSheet,
   SHARE_CALENDAR: ShareCalendarSheet,
+  UPDATE_EVENT: UpdateEventSheet,
 };
 
 /**

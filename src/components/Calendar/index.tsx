@@ -119,6 +119,7 @@ export default function Calendar({ events }: Props) {
 
       {/* Grid */}
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={grid}
         numColumns={7}
         ListHeaderComponent={Header}

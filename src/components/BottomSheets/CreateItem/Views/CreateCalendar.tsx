@@ -56,8 +56,6 @@ export default function CreateCalendarView({
     },
   });
 
-  const onCreate = () => {};
-
   const onPrevious = () => {
     setView(0);
   };

@@ -38,3 +38,15 @@ export type GetCalendarResponse = API.Response<{
   /** The events in the calendar */
   events: IEvent[];
 }>;
+
+export type CreateEventResponse = API.Response<{
+  /** The new event */
+  event: IEvent;
+}>;
+
+export type UpdateEventResponse = API.Response<{
+  /** The updated event */
+  event: IEvent;
+}>;
+
+export type DeleteEventResponse = API.Response;
