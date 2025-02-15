@@ -18,11 +18,7 @@ export const useCreateCalendar = () => {
     },
     onSuccess: async (res) => {
       queryClient.refetchQueries({ queryKey: [GET_CALENDARS_KEY] });
-
-      // Set the default calendar
-      if (!calendarStore.calendar) {
-        calendarStore.setCalendar(res.calendar._id);
-      }
+      calendarStore.setCalendar(res.calendar._id);
     },
   });
 };

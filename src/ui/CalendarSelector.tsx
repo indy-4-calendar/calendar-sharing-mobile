@@ -5,6 +5,7 @@ import { TouchableOpacity, View } from "react-native";
 import Text from "@/ui/Text";
 import { ICalendar } from "@/@types";
 import useCalendarStore from "@/store/calendar";
+import useBottomSheetStore from "@/store/bottom-sheets";
 
 interface Props {
   calendar: ICalendar;
@@ -12,6 +13,7 @@ interface Props {
 
 export default function CalendarSelector({ calendar }: Props) {
   const calendarStore = useCalendarStore();
+  const bottomSheetStore = useBottomSheetStore();
 
   const isSelected = calendarStore.calendar === calendar._id;
 
@@ -22,6 +24,7 @@ export default function CalendarSelector({ calendar }: Props) {
 
   const onPress = () => {
     calendarStore.setCalendar(calendar._id);
+    bottomSheetStore.close("SWITCH_CALENDAR");
   };
 
   return (
