@@ -2,9 +2,11 @@ import classNames from "classnames";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity, View } from "react-native";
 
+import { BottomSheetProps } from "../../@types";
+
 import Text from "@/ui/Text";
 
-interface Props {
+interface Props extends BottomSheetProps {
   setView: (view: number) => void;
 }
 

@@ -12,7 +12,6 @@ export type ButtonColor = "primary" | "secondary";
 
 interface ButtonProps extends TouchableOpacityProps {
   color?: ButtonColor;
-  style?: any;
   textStyle?: any;
   loading?: boolean;
   children: React.ReactNode;
@@ -41,6 +40,7 @@ const Button: React.FC<ButtonProps> = ({
   loading = false,
   disabled = false,
   children,
+  className,
   ...props
 }) => {
   // Set the button to disabled if it's loading or if it's explicitly disabled
@@ -53,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({
     "px-2 py-3 rounded-xl ",
     disabled && "disabled",
     colorStyle.container,
-    style,
+    className,
   );
 
   const textClasses = classNames(

@@ -1,13 +1,36 @@
 import { View } from "react-native";
 
-import Text from "@/ui/Text";
-import FormField from "@/ui/FormField";
+import { BottomSheetProps } from "../../@types";
 
-interface Props {
+import Text from "@/ui/Text";
+import Button from "@/ui/Button";
+import FormField from "@/ui/FormField";
+import useKeyboardListener from "@/hooks/useKeyboardListener";
+
+interface Props extends BottomSheetProps {
   setView: (view: number) => void;
 }
 
-export default function CreateCalendarView({}: Props) {
+export default function CreateCalendarView({
+  setView,
+  snapToIndex,
+  snapToPosition,
+}: Props) {
+  useKeyboardListener({
+    onKeyboardWillShow: () => {
+      snapToPosition("85%");
+    },
+    onKeyboardWillHide: () => {
+      snapToIndex(0);
+    },
+  });
+
+  const onCreate = () => {};
+
+  const onPrevious = () => {
+    setView(0);
+  };
+
   return (
     <>
       <View>
@@ -23,6 +46,13 @@ export default function CreateCalendarView({}: Props) {
         <FormField placeholder="Calendar Name" />
         <FormField placeholder="Calendar Description" />
         <FormField placeholder="Calendar Color" />
+
+        <View className="flex-row gap-2">
+          <Button color="secondary" className="flex-1" onPress={onPrevious}>
+            Go Back
+          </Button>
+          <Button className="flex-1">Create</Button>
+        </View>
       </View>
     </>
   );

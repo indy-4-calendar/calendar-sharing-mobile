@@ -10,7 +10,7 @@ import { BottomSheetProps } from "../@types";
 import BottomSheet from "@/ui/BottomSheet";
 import BottomSheetView from "@/ui/BottomSheet/Containers/View";
 
-function Content() {
+function Content(props: BottomSheetProps) {
   const [currentView, setCurrentView] = useState(0);
 
   const Views = [LandingView, CreateEventView, CreateCalendarView];
@@ -20,14 +20,14 @@ function Content() {
 
   return (
     <BottomSheetView>
-      <CurrentView setView={setView} />
+      <CurrentView setView={setView} {...props} />
     </BottomSheetView>
   );
 }
 
 const CreateItemSheet = forwardRef<BottomSheetModal, BottomSheetProps>(
   function CreateItemSheet(props, ref) {
-    return <BottomSheet ref={ref} children={Content} />;
+    return <BottomSheet ref={ref} children={<Content {...props} />} />;
   },
 );
 

@@ -88,7 +88,7 @@ const FormField: React.FC<FormFieldProps> = ({
     "border px-5 py-5 rounded-xl text-base leading-5 bg-gray-100",
     // If there is a value or the input is focused, we need to add padding to the input to make it "look"
     // like the placeholder is in the input and they are both centered
-    (focused || value) && "pt-6 pb-2",
+    (focused || value) && "pt-7 pb-3",
     // DEFAULT State
     !error && !focused && "border-gray-100",
     // FOCUS State
