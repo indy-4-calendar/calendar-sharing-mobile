@@ -26,18 +26,18 @@ export default function Layout() {
         tabBarActiveTintColor: colors.gray[800],
         tabBarInactiveTintColor: colors.gray[400],
         tabBarItemStyle: {
-          marginTop: 16,
+          marginTop: 12,
         },
         tabBarStyle: {
           position: "absolute",
-          height: 100,
+          height: 92,
         },
         sceneStyle: {
           backgroundColor: colors.gray[100],
         },
         tabBarLabel: ({ color, children }) => {
           return (
-            <Text size="xs" style={{ color }}>
+            <Text size="xxs" style={{ color }}>
               {children}
             </Text>
           );
@@ -75,6 +75,7 @@ export default function Layout() {
         listeners={() => ({
           tabPress: (e) => {
             e.preventDefault();
+            bottomSheetStore.open("CREATE_ITEM");
           },
         })}
         options={{

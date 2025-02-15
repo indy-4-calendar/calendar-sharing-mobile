@@ -2,16 +2,17 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 import { IndividualSheetName } from "./@types";
 
+import useBottomSheetStore from "@/store/bottom-sheets";
+import CreateItemSheet from "./CreateItem";
 import ShareCalendarSheet from "./ShareCalendar";
 import SwitchCalendarSheet from "./SwitchCalendar";
 import NetworkLoggerSheet from "./DevTools/NetworkLogger";
-
-import useBottomSheetStore from "@/store/bottom-sheets";
 
 /**
  * The list of bottom sheets we want to support
  */
 const BottomSheets: Record<IndividualSheetName, React.FC<any>> = {
+  CREATE_ITEM: CreateItemSheet,
   NETWORK_LOGGER: NetworkLoggerSheet,
   SWITCH_CALENDAR: SwitchCalendarSheet,
   SHARE_CALENDAR: ShareCalendarSheet,

@@ -12,6 +12,7 @@ export type IndividualSheetData<T extends IndividualSheetName> = {
 
 export interface IndividualSheetProps {
   SHARE_CALENDAR: { id: string };
+  CREATE_ITEM: undefined;
   SWITCH_CALENDAR: undefined;
   NETWORK_LOGGER: undefined;
 }

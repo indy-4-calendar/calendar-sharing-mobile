@@ -1,17 +1,17 @@
 import { forwardRef } from "react";
 import * as Haptics from "expo-haptics";
 import * as Clipboard from "expo-clipboard";
+import Toast from "react-native-toast-message";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity, View } from "react-native";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 import { BottomSheetProps, IndividualSheetData } from "./@types";
 
 import Text from "@/ui/Text";
+import { Urls } from "@/constants";
 import BottomSheet from "@/ui/BottomSheet";
 import BottomSheetView from "@/ui/BottomSheet/Containers/View";
-import { Urls } from "@/constants";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import Toast from "react-native-toast-message";
 
 type Props = BottomSheetProps & IndividualSheetData<"SHARE_CALENDAR">;
 
@@ -31,7 +31,7 @@ function Content({ data }: Props) {
   return (
     <BottomSheetView>
       <View>
-        <Text size="xl" className="font-medium text-gray-800">
+        <Text size="xl" className="font-semibold text-gray-800">
           Share Calendar
         </Text>
         <Text className="text-gray-500">

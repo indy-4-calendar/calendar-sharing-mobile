@@ -21,7 +21,7 @@ function Content({}: Props) {
   return (
     <BottomSheetView>
       <View>
-        <Text size="xl" className="font-medium text-gray-800">
+        <Text size="xl" className="font-semibold text-gray-800">
           Switch Calendars
         </Text>
         <Text className="text-gray-500">
