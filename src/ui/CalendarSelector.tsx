@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity, View } from "react-native";
 
 import Text from "@/ui/Text";
@@ -11,6 +12,8 @@ interface Props {
 
 export default function CalendarSelector({ calendar }: Props) {
   const calendarStore = useCalendarStore();
+
+  const isSelected = calendarStore.calendar === calendar._id;
 
   const containerClasses = classNames(
     "flex-row items-center gap-4",
@@ -36,6 +39,8 @@ export default function CalendarSelector({ calendar }: Props) {
           {calendar.description}
         </Text>
       </View>
+
+      {isSelected && <Ionicons name="checkmark" size={20} />}
     </TouchableOpacity>
   );
 }

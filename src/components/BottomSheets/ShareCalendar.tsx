@@ -41,7 +41,7 @@ function Content({ data }: Props) {
 
       <View className="flex-row items-center justify-between gap-2 rounded-xl bg-gray-100 p-4">
         <View className="flex-1">
-          <Text className="text-gray-800">Calendar Link</Text>
+          <Text className="font-medium text-gray-800">Calendar Link</Text>
           <Text size="sm" className="text-gray-500" lines={1}>
             {url}
           </Text>

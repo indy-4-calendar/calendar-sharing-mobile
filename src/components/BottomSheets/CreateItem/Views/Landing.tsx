@@ -38,7 +38,7 @@ export default function LandingView({ setView }: Props) {
           <Ionicons name="calendar" size={20} />
 
           <View className="flex-1">
-            <Text className="text-gray-800">New Calendar</Text>
+            <Text className="font-medium text-gray-800">New Calendar</Text>
             <Text size="sm" className="text-gray-500" lines={1}>
               Create a new calendar to share with friends
             </Text>
@@ -49,7 +49,7 @@ export default function LandingView({ setView }: Props) {
           <Ionicons name="create" size={20} />
 
           <View className="flex-1">
-            <Text className="text-gray-800">New Event</Text>
+            <Text className="font-medium text-gray-800">New Event</Text>
             <Text size="sm" className="text-gray-500" lines={1}>
               Create a new event for this calendar
             </Text>
