@@ -7,8 +7,11 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Text from "@/ui/Text";
 import useAuthStore from "@/store/auth";
 import useBottomSheetStore from "@/store/bottom-sheets";
+import { useGetCalendars } from "@/hooks/api/calendars";
 
 export default function Layout() {
+  useGetCalendars();
+
   const { user } = useAuthStore();
   const bottomSheetStore = useBottomSheetStore();
 

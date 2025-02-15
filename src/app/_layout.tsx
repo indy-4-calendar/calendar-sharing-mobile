@@ -15,6 +15,8 @@ import GestureDetectorProvider from "@/providers/GestureDetector";
 import queryClient from "@/lib/query-client";
 import BottomSheetComponent from "@/components/BottomSheets";
 import setupRequestInterceptors from "@/lib/axios/interceptors";
+import Toast from "react-native-toast-message";
+import toastConfig from "@/lib/toast";
 
 // Prevent the native splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -40,6 +42,7 @@ export default function RootLayout() {
                   <Slot />
                 </GestureDetectorProvider>
               </BottomSheetModalProvider>
+              <Toast config={toastConfig} />
             </GestureHandlerRootView>
           </SafeAreaProvider>
         </SplashScreenProvider>

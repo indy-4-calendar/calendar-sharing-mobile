@@ -7,6 +7,7 @@ interface TextProps extends Omit<RNTextProps, "numberOfLines"> {
 }
 
 const SizeClasses = {
+  xxs: "text-[10px] leading-[0px]",
   xs: "text-[12px] leading-[16px]",
   sm: "text-[14px] leading-[20px]",
   base: "text-[16px] leading-[24px]",
