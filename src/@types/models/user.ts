@@ -8,6 +8,8 @@ export interface IUser {
   lastName: string;
   /** The email of the user's user */
   email: string;
+  /** The list of the users calendars */
+  calendars: string[];
 
   /** METADATA */
   /** The date the user was created */

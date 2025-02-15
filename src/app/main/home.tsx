@@ -3,8 +3,13 @@ import { View } from "react-native";
 import Text from "@/ui/Text";
 import SafeAreaView from "@/ui/SafeAreaView";
 import { useMemo } from "react";
+import { useGetCalendar } from "@/hooks/api/calendars";
+import useCalendarStore from "@/store/calendar";
 
 export default function Home() {
+  const calendarStore = useCalendarStore();
+  const query = useGetCalendar(calendarStore.calendar);
+
   // Get the date as Month Day, like July 31st
   const currentDate = useMemo(() => {
     const date = new Date();

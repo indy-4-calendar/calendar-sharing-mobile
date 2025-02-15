@@ -1,20 +1,25 @@
+import classNames from "classnames";
 import { TouchableOpacity, View } from "react-native";
 
 import Text from "@/ui/Text";
 import { ICalendar } from "@/@types";
-import classNames from "classnames";
+import useCalendarStore from "@/store/calendar";
 
 interface Props {
   calendar: ICalendar;
 }
 
 export default function CalendarSelector({ calendar }: Props) {
+  const calendarStore = useCalendarStore();
+
   const containerClasses = classNames(
     "flex-row items-center gap-4",
     "rounded-xl bg-gray-100 p-4",
   );
 
-  const onPress = () => {};
+  const onPress = () => {
+    calendarStore.setCalendar(calendar._id);
+  };
 
   return (
     <TouchableOpacity className={containerClasses} onPress={onPress}>

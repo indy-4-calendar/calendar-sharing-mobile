@@ -16,8 +16,6 @@ type Props = BottomSheetProps;
 function Content({}: Props) {
   const query = useGetCalendars();
 
-  if (query.isLoading) return <LoadingState />;
-
   const calendars = query.data?.calendars || [];
 
   return (
@@ -31,33 +29,26 @@ function Content({}: Props) {
         </Text>
       </View>
 
-      <View className="gap-2">
-        {calendars.map((calendar, i) => (
-          <CalendarSelector key={i} calendar={calendar} />
-        ))}
-      </View>
+      {query.isLoading && <LoadingState />}
+
+      {query.isSuccess && (
+        <View className="gap-2">
+          {calendars.map((calendar, i) => (
+            <CalendarSelector key={i} calendar={calendar} />
+          ))}
+        </View>
+      )}
     </BottomSheetView>
   );
 }
 
 function LoadingState() {
   return (
-    <BottomSheetView>
-      <View>
-        <Text size="xl" className="font-medium text-gray-800">
-          Switch Calendars
-        </Text>
-        <Text className="text-gray-500">
-          Select the calendar that you want to view
-        </Text>
-      </View>
-
-      <View className="gap-2">
-        {new Array(3).fill(null).map((_, i) => (
-          <Skeleton key={i} className="h-20" />
-        ))}
-      </View>
-    </BottomSheetView>
+    <View className="gap-2">
+      {new Array(3).fill(null).map((_, i) => (
+        <Skeleton key={i} className="h-20" />
+      ))}
+    </View>
   );
 }
 
