@@ -80,13 +80,9 @@ const validators = {
   /**
    * Validate a string is a date with a timestamp
    */
-  date: z
-  .string({
+  date: z.date({
     required_error: 'Date is required',
-    invalid_type_error: 'Date must be a string',
-  })
-  .regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/, {
-    message: 'Invalid date',
+    invalid_type_error: 'Date must be passed',
   }),
 
 };

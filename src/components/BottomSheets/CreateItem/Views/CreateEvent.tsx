@@ -9,10 +9,10 @@ import FormField from "@/ui/FormField";
 import ColorPicker from "@/ui/ColorPicker";
 import validators from "@/constants/validators";
 import useCalendarStore from "@/store/calendar";
+import DateTimePicker from "@/ui/DateTimePicker";
 import useFormMutation from "@/hooks/useFormMutation";
 import { useCreateEvent } from "@/hooks/api/calendars";
 import useKeyboardListener from "@/hooks/useKeyboardListener";
-import DateTimePicker from "@/ui/DateTimePicker";
 
 interface Props extends BottomSheetProps {
   setView: (view: number) => void;

@@ -1,3 +1,6 @@
+import RNDateTimePicker, {
+  DateTimePickerEvent,
+} from "@react-native-community/datetimepicker";
 import { View } from "react-native";
 import { forwardRef, useState } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
@@ -14,6 +17,10 @@ type Props = BottomSheetProps & IndividualSheetData<"DATE_TIME_PICKER">;
 function Content({ data, close }: Props) {
   const [date, setDate] = useState(data.value);
 
+  const onChange = (_: DateTimePickerEvent, newDate?: Date) => {
+    if (newDate) setDate(newDate);
+  };
+
   const onSave = () => {
     data.onChange(date);
     close();
@@ -29,6 +36,12 @@ function Content({ data, close }: Props) {
       </View>
 
       <View className="gap-2">
+        <RNDateTimePicker
+          value={date}
+          display="spinner"
+          mode="datetime"
+          onChange={onChange}
+        />
         <View className="flex-row gap-2">
           <Button color="secondary" className="flex-1" onPress={close}>
             Cancel

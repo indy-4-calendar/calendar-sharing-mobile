@@ -10,8 +10,10 @@ import Text from "@/ui/Text";
 import Button from "@/ui/Button";
 import FormField from "@/ui/FormField";
 import BottomSheet from "@/ui/BottomSheet";
+import ColorPicker from "@/ui/ColorPicker";
 import useCalendarStore from "@/store/calendar";
 import validators from "@/constants/validators";
+import DateTimePicker from "@/ui/DateTimePicker";
 import useFormMutation from "@/hooks/useFormMutation";
 import useKeyboardListener from "@/hooks/useKeyboardListener";
 import BottomSheetView from "@/ui/BottomSheet/Containers/View";
@@ -43,7 +45,7 @@ function Content({ data, snapToPosition, close, snapToIndex }: Props) {
       name: data.event.name,
       description: data.event.description,
       color: data.event.color,
-      date: data.event.date,
+      date: new Date(data.event.date),
     },
     onSuccess: async () => {
       close();
@@ -111,17 +113,17 @@ function Content({ data, snapToPosition, close, snapToIndex }: Props) {
           error={form.state.description.error}
           onChangeText={(value) => form.setValue("description", value)}
         />
-        <FormField
-          placeholder="Event Date"
-          value={form.state.date.value}
-          error={form.state.date.error}
-          onChangeText={(value) => form.setValue("date", value)}
-        />
-        <FormField
+        <ColorPicker
           placeholder="Event Color"
           value={form.state.color.value}
           error={form.state.color.error}
-          onChangeText={(value) => form.setValue("color", value)}
+          onChange={(value) => form.setValue("color", value)}
+        />
+        <DateTimePicker
+          placeholder="Event Date"
+          value={form.state.date.value}
+          error={form.state.date.error}
+          onChange={(value) => form.setValue("date", value)}
         />
 
         <View className="flex-row gap-2">

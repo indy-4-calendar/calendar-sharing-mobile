@@ -36,18 +36,34 @@ export default function Day({ data, events }: Props) {
         {data.day}
       </Text>
 
-      {events.map((event) => (
-        <TouchableOpacity
-          key={event._id}
-          className={eventClasses}
-          style={{ backgroundColor: event.color }}
-          onPress={() => bottomSheetStore.open("UPDATE_EVENT", { event })}
-        >
-          <Text size="xxs" lines={1}>
-            {event.name}
-          </Text>
-        </TouchableOpacity>
-      ))}
+      {events.map((event) => {
+        const textColor = getTextColor(event.color);
+
+        return (
+          <TouchableOpacity
+            key={event._id}
+            className={eventClasses}
+            style={{ backgroundColor: event.color }}
+            onPress={() => bottomSheetStore.open("UPDATE_EVENT", { event })}
+          >
+            <Text size="xxs" lines={1} style={{ color: textColor }}>
+              {event.name}
+            </Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
+}
+
+function getTextColor(color: string) {
+  const hex = color.replace("#", "");
+
+  const r = parseInt(hex.substr(0, 2), 16);
+  const g = parseInt(hex.substr(2, 2), 16);
+  const b = parseInt(hex.substr(4, 2), 16);
+
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+  return brightness >= 128 ? "black" : "white";
 }
