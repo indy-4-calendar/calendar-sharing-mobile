@@ -85,10 +85,10 @@ const FormField: React.FC<FormFieldProps> = ({
   );
 
   const inputClasses = classNames(
-    "border px-5 py-5 rounded-xl text-base leading-5 bg-gray-100",
+    "border px-5 py-5 rounded-xl text-base leading-5 bg-gray-100 h-16",
     // If there is a value or the input is focused, we need to add padding to the input to make it "look"
     // like the placeholder is in the input and they are both centered
-    (focused || value) && "pt-7 pb-3",
+    (focused || value) && "pt-6 pb-3",
     // DEFAULT State
     !error && !focused && "border-gray-100",
     // FOCUS State
@@ -109,7 +109,7 @@ const FormField: React.FC<FormFieldProps> = ({
     fontSize: placeholderSize.value,
   }));
 
-  const valueClasses = classNames("text-base leading-5 text-primary");
+  const valueClasses = classNames("text-base leading-0 text-primary");
 
   return (
     <Pressable className={containerClasses} onPress={onContainerPress}>

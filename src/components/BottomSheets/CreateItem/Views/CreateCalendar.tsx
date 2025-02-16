@@ -1,15 +1,16 @@
 import { View } from "react-native";
+import Toast from "react-native-toast-message";
 
 import { BottomSheetProps } from "../../@types";
 
 import Text from "@/ui/Text";
 import Button from "@/ui/Button";
 import FormField from "@/ui/FormField";
-import useKeyboardListener from "@/hooks/useKeyboardListener";
-import useFormMutation from "@/hooks/useFormMutation";
+import ColorPicker from "@/ui/ColorPicker";
 import validators from "@/constants/validators";
+import useFormMutation from "@/hooks/useFormMutation";
 import { useCreateCalendar } from "@/hooks/api/calendars";
-import Toast from "react-native-toast-message";
+import useKeyboardListener from "@/hooks/useKeyboardListener";
 
 interface Props extends BottomSheetProps {
   setView: (view: number) => void;
@@ -35,7 +36,7 @@ export default function CreateCalendarView({
     initialValues: {
       name: "",
       description: "",
-      color: "",
+      color: "#ff0000",
     },
     onSuccess: async () => {
       close();
@@ -84,11 +85,11 @@ export default function CreateCalendarView({
           error={form.state.description.error}
           onChangeText={(value) => form.setValue("description", value)}
         />
-        <FormField
+        <ColorPicker
           placeholder="Calendar Color"
           value={form.state.color.value}
           error={form.state.color.error}
-          onChangeText={(value) => form.setValue("color", value)}
+          onChange={(value) => form.setValue("color", value)}
         />
 
         <View className="flex-row gap-2">

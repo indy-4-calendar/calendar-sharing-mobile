@@ -16,7 +16,7 @@ import BottomSheetView from "@/ui/BottomSheet/Containers/View";
 type Props = BottomSheetProps & IndividualSheetData<"SHARE_CALENDAR">;
 
 function Content({ data }: Props) {
-  const url = `${Urls.ApiUrl}/calendars/${data.id}/join`;
+  const url = `${Urls.ApiUrl}/calendars/${data.id}`;
 
   const onCopyLink = () => {
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);

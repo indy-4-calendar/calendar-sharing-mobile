@@ -6,11 +6,13 @@ import { BottomSheetProps } from "../../@types";
 import Text from "@/ui/Text";
 import Button from "@/ui/Button";
 import FormField from "@/ui/FormField";
+import ColorPicker from "@/ui/ColorPicker";
 import validators from "@/constants/validators";
-import useFormMutation from "@/hooks/useFormMutation";
-import { useCreateCalendar, useCreateEvent } from "@/hooks/api/calendars";
-import useKeyboardListener from "@/hooks/useKeyboardListener";
 import useCalendarStore from "@/store/calendar";
+import useFormMutation from "@/hooks/useFormMutation";
+import { useCreateEvent } from "@/hooks/api/calendars";
+import useKeyboardListener from "@/hooks/useKeyboardListener";
+import DateTimePicker from "@/ui/DateTimePicker";
 
 interface Props extends BottomSheetProps {
   setView: (view: number) => void;
@@ -40,8 +42,8 @@ export default function CreateEventView({
       id: calendar!,
       name: "",
       description: "",
-      color: "",
-      date: "",
+      color: "#ff0000",
+      date: new Date(),
     },
     onSuccess: async () => {
       close();
@@ -90,17 +92,17 @@ export default function CreateEventView({
           error={form.state.description.error}
           onChangeText={(value) => form.setValue("description", value)}
         />
-        <FormField
-          placeholder="Event Date"
-          value={form.state.date.value}
-          error={form.state.date.error}
-          onChangeText={(value) => form.setValue("date", value)}
-        />
-        <FormField
+        <ColorPicker
           placeholder="Event Color"
           value={form.state.color.value}
           error={form.state.color.error}
-          onChangeText={(value) => form.setValue("color", value)}
+          onChange={(value) => form.setValue("color", value)}
+        />
+        <DateTimePicker
+          placeholder="Event Date"
+          value={form.state.date.value}
+          error={form.state.date.error}
+          onChange={(value) => form.setValue("date", value)}
         />
 
         <View className="flex-row gap-2">

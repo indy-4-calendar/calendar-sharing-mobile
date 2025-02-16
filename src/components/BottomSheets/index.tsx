@@ -2,12 +2,15 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 import { IndividualSheetName } from "./@types";
 
-import useBottomSheetStore from "@/store/bottom-sheets";
 import CreateItemSheet from "./CreateItem";
 import ShareCalendarSheet from "./ShareCalendar";
 import SwitchCalendarSheet from "./SwitchCalendar";
 import NetworkLoggerSheet from "./DevTools/NetworkLogger";
 import UpdateEventSheet from "./UpdateEvent";
+import ColorPickerSheet from "./ColorPicker";
+
+import useBottomSheetStore from "@/store/bottom-sheets";
+import DateTimePickerSheet from "./DateTimePicker";
 
 /**
  * The list of bottom sheets we want to support
@@ -18,6 +21,8 @@ const BottomSheets: Record<IndividualSheetName, React.FC<any>> = {
   SWITCH_CALENDAR: SwitchCalendarSheet,
   SHARE_CALENDAR: ShareCalendarSheet,
   UPDATE_EVENT: UpdateEventSheet,
+  COLOR_PICKER: ColorPickerSheet,
+  DATE_TIME_PICKER: DateTimePickerSheet,
 };
 
 /**

@@ -27,6 +27,7 @@ function Content({ data, snapToPosition, close, snapToIndex }: Props) {
 
   const formValidators = {
     id: validators.objectId,
+    event: validators.objectId,
     name: validators.string,
     description: validators.string,
     color: validators.color,
