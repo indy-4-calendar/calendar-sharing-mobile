@@ -2,12 +2,12 @@ const packageFile = require('./package.json');
 
 export default {
   expo: {
-    name: 'Calendar Sharing',
+    name: 'DayLink',
     slug: 'calendar-sharing',
     version: packageFile.version,
     orientation: 'portrait',
     icon: './assets/images/icon.png',
-    scheme: 'myapp',
+    scheme: 'daylink',
     userInterfaceStyle: 'light',
     newArchEnabled: false,
     ios: {

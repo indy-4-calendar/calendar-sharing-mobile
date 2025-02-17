@@ -50,3 +50,8 @@ export type UpdateEventResponse = API.Response<{
 }>;
 
 export type DeleteEventResponse = API.Response;
+
+export type UpdateUserResponse = API.Response<{
+  /** The updated user */
+  user: IUser;
+}>;

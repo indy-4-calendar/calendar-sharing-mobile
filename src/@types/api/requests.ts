@@ -55,3 +55,8 @@ export interface DeleteEventRequest {
   /** The id of the event */
   event: string;
 }
+
+export interface UpdateUserRequest {
+  /** The notification push token */
+  notificationPushToken: string;
+}
