@@ -55,3 +55,5 @@ export type UpdateUserResponse = API.Response<{
   /** The updated user */
   user: IUser;
 }>;
+
+export type JoinCalendarResponse = API.Response;

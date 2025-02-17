@@ -60,3 +60,8 @@ export interface UpdateUserRequest {
   /** The notification push token */
   notificationPushToken: string;
 }
+
+export interface JoinCalendarRequest {
+  /** The id of the calendar */
+  id: string;
+}

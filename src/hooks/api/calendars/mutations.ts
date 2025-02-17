@@ -6,11 +6,18 @@ import {
   CreateCalendarRequest,
   CreateEventRequest,
   DeleteEventRequest,
+  JoinCalendarRequest,
   UpdateEventRequest,
 } from '@/@types';
+import {
+  createCalendar,
+  createEvent,
+  deleteEvent,
+  joinCalendar,
+  updateEvent,
+} from '@/api';
 import queryClient from '@/lib/query-client';
 import useCalendarStore from '@/store/calendar';
-import { createCalendar, createEvent, deleteEvent, updateEvent } from '@/api';
 
 export const useCreateCalendar = () => {
   const calendarStore = useCalendarStore();
@@ -63,6 +70,22 @@ export const useDeleteEvent = () => {
     },
     onSuccess: async (res, params) => {
       queryClient.refetchQueries({ queryKey: [GET_CALENDAR_KEY, params.id] });
+    },
+  });
+};
+
+export const useJoinCalendar = () => {
+  const calendarStore = useCalendarStore();
+
+  return useMutation({
+    mutationFn: async (data: JoinCalendarRequest) => {
+      const res = await joinCalendar(data);
+      if ('error' in res) throw res;
+      return res.data;
+    },
+    onSuccess: async (res, params) => {
+      queryClient.refetchQueries({ queryKey: [GET_CALENDARS_KEY] });
+      calendarStore.setCalendar(params.id);
     },
   });
 };

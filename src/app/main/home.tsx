@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocalSearchParams } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity, View } from "react-native";
 
@@ -13,6 +15,14 @@ export default function Home() {
   const calendarStore = useCalendarStore();
   const bottomSheetStore = useBottomSheetStore();
   const query = useGetCalendar(calendarStore.calendar);
+
+  const searchParams = useLocalSearchParams<{ id?: string }>();
+
+  useEffect(() => {
+    if (searchParams.id) {
+      bottomSheetStore.open("JOIN_CALENDAR", { id: searchParams.id });
+    }
+  }, [searchParams.id]);
 
   const onShareCalendar = () => {
     bottomSheetStore.open("SHARE_CALENDAR", { id: calendarStore.calendar! });

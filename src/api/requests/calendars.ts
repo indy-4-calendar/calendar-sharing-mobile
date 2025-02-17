@@ -8,6 +8,8 @@ import {
   GetCalendarRequest,
   GetCalendarResponse,
   GetCalendarsResponse,
+  JoinCalendarRequest,
+  JoinCalendarResponse,
   UpdateEventRequest,
   UpdateEventResponse,
 } from '@/@types';
@@ -48,6 +50,18 @@ export const getCalendar = async (data: GetCalendarRequest) => {
   const url = `${PREFIX}/${data.id}`;
 
   const response = await axios.get<GetCalendarResponse>(url);
+
+  return response.data;
+};
+
+/**
+ * Request:     POST /api/v1/calendars/:id
+ * Description: Join a calendar by ID
+ */
+export const joinCalendar = async (data: JoinCalendarRequest) => {
+  const url = `${PREFIX}/${data.id}`;
+
+  const response = await axios.post<JoinCalendarResponse>(url);
 
   return response.data;
 };

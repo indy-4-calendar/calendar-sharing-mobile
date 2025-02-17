@@ -8,9 +8,10 @@ import SwitchCalendarSheet from "./SwitchCalendar";
 import NetworkLoggerSheet from "./DevTools/NetworkLogger";
 import UpdateEventSheet from "./UpdateEvent";
 import ColorPickerSheet from "./ColorPicker";
+import DateTimePickerSheet from "./DateTimePicker";
+import JoinCalendarSheet from "./JoinCalendar";
 
 import useBottomSheetStore from "@/store/bottom-sheets";
-import DateTimePickerSheet from "./DateTimePicker";
 
 /**
  * The list of bottom sheets we want to support
@@ -23,6 +24,7 @@ const BottomSheets: Record<IndividualSheetName, React.FC<any>> = {
   UPDATE_EVENT: UpdateEventSheet,
   COLOR_PICKER: ColorPickerSheet,
   DATE_TIME_PICKER: DateTimePickerSheet,
+  JOIN_CALENDAR: JoinCalendarSheet,
 };
 
 /**

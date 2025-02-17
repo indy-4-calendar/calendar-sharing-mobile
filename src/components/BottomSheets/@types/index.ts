@@ -13,6 +13,7 @@ export type IndividualSheetData<T extends IndividualSheetName> = {
 };
 
 export interface IndividualSheetProps {
+  JOIN_CALENDAR: { id: string };
   SHARE_CALENDAR: { id: string };
   UPDATE_EVENT: { event: IEvent };
   DATE_TIME_PICKER: { value: Date; onChange: (date: Date) => void };
